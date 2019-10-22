@@ -152,6 +152,101 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2019-10-21课堂笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>—2019.10.21课堂笔记<br>title: 2019.10.21课堂笔记<br>date: 2019-10-22 19:10:46<br>tags:<br>—# JSP</p>
+<h2 id="梳理回顾"><a href="#梳理回顾" class="headerlink" title="梳理回顾"></a>梳理回顾</h2><p>前端开发：HTML、CSS、JS(JavaScript)</p>
+<p>企业中前端工程师：使用前端框架(BootStrap/easyUI/VUE/Angular)开发。</p>
+<p>后端开发：JavaSE、JSP、JavaWeb(良好的稳定性、健壮性优于其它语言。企业级应用首选之一)</p>
+<p>企业中的后端工程师：使用后端框架(SpringMVC/Struts2、Spring、myBatis)开发。</p>
+<p><img src="%5Cimgs%5C%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%9101.jpg" alt><br>“全栈工程师”</p>
+<p>C语言:工业控制、嵌入式设备(电磁炉、吸尘器、微波炉。。。)。</p>
+<h2 id="jsp"><a href="#jsp" class="headerlink" title="jsp"></a>jsp</h2><p>JSP项目是在后台开发框架成熟前使用较多的一种JavaWeb技术，后期会逐渐过度到后台框架。<br>jvm只能处理java编译的class文件。</p>
+<h3 id="JSP和后台框架"><a href="#JSP和后台框架" class="headerlink" title="JSP和后台框架"></a>JSP和后台框架</h3><p>核心技术均为Servlet<br>Servlet在jdk中的包为：javax.servlet.http.HttpServlet。</p>
+<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><ol>
+<li>jsp和servlet的区别和联系：<br>1). jsp经编译后就变成了Servlet.<br>(JSP的本质就是Servlet，JVM只能识别java的类(.class)，不能识别JSP的代码,Web容器将JSP的代码编译成JVM能够识别的java类)<br>2).jsp更擅长表现于页面显示,servlet更擅长于逻辑控制.<br>3).Servlet中没有内置对象，Jsp中的内置对象都是必须通过HttpServletRequest对象，HttpServletResponse对象以及HttpServlet对象得到.<br>Jsp是Servlet的一种简化，使用Jsp只需要完成程序员需要输出到客户端的内容，Jsp中的Java脚本如何镶嵌到一个类中，由Jsp容器完成。<br>而Servlet则是个完整的Java类，这个类的Service方法用于生成对客户端的响应。</li>
+</ol>
+<ol start="2">
+<li>联系：  </li>
+</ol>
+<ul>
+<li>JSP是Servlet技术的扩展，本质上就是Servlet的简易方式。JSP编译后是“类servlet”。</li>
+<li>Servlet和JSP最主要的不同点在于：</li>
+<li>Servlet的应用逻辑是在Java文件中，并且完全从表示层中的HTML里分离开来。（jsp里面是有html标签，servlet没有html标签）</li>
+<li>而JSP的情况是Java和HTML可以组合成一个扩展名为.jsp的文件。(JSP=java类+HTML)</li>
+<li>JSP侧重于视图，Servlet主要用于控制逻辑。(JSP不能脱离Servlet，但Servelet可独立存在)</li>
+<li>Servlet更多的是类似于一个Controller，用来做控制。</li>
+</ul>
+<h2 id="servlet类中的方法"><a href="#servlet类中的方法" class="headerlink" title="servlet类中的方法"></a>servlet类中的方法</h2><h3 id="servlet中的方法"><a href="#servlet中的方法" class="headerlink" title="servlet中的方法"></a>servlet中的方法</h3><p>doGet()方法：用get方式传输网络数据<br>get方式：明文传参(地址栏显示)、传输数据较小、</p>
+<p>doPost()方法：用post方式传输网络数据<br>post方式：暗文传参(地址栏不显示)、传输数据较大、</p>
+<h3 id="页面跳转方式"><a href="#页面跳转方式" class="headerlink" title="页面跳转方式"></a>页面跳转方式</h3><p>页面跳转的方式分类：</p>
+<ol>
+<li><p>转发：foward(地址栏URL不变)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestDispatcher(<span class="string">"hello.jsp"</span>).forward(request，response);<span class="comment">//页面转发</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重定向：redirect(地址栏URL变化)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"资源的URL"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>两种跳转方式异同：</p>
+</li>
+</ol>
+<ul>
+<li><p>转发使用的是getRequestDispatcher()方法;重定向使用的是sendRedirect();</p>
+</li>
+<li><p>转发：浏览器URL的地址栏不变。重定向：浏览器URL的地址栏改变；</p>
+</li>
+<li><p>转发是服务器行为，重定向是客户端行为；</p>
+</li>
+<li><p>转发是浏览器只做了一次访问请求。重定向是浏览器做了至少两次的访问请求；</p>
+</li>
+<li><p>转发2次跳转之间传输的信息不会丢失，重定向2次跳转之间传输的信息会丢失（request范围）。</p>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/22/2019-10-21课堂笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-web前端第一章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
