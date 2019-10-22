@@ -165,38 +165,42 @@
 
         
         <a href="/2019/10/22/2019-10-22课堂笔记/" class="archive-article-date">
-  	<time datetime="2019-10-22T11:48:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
+  	<time datetime="2019-10-22T11:56:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>2019.10.22课堂笔记<br>JSP<br>实现登录功能<br>第一步: 创建login.jsp登录页面<br>在所创建的动态项目his_v1中，于WebContent文件夹下创建login.jsp。其显示效果类似于下图:<br>对应源代码如下：</p>
-<html> <body> <!-- 需要注意的是:xml配置文件中的url-pattern这里写的是/LoginServlet，而在jsp中form表单
-的action写的是LoginServlet,而不是/LoginServlet。 --> <form action="LoginServlet" method="post"> <table>
-<tr>
-<td colspan="2">登录窗口</td>
-</tr>
-<tr>
-<td>用户名：</td>
-<td><input type="text" name="username">
-</td>
-</tr>
-<tr>
-<td>密码：</td>
-<td><input type="password" name="password">
-</td>
-</tr>
-<tr>
-<td colspan="2"><input type="submit" value="登录"> <a href="register.jsp">注册</a>
-</td>
-</tr>
-</table>
-</form>
-</body> </html>
-第二步：创建处理登录判定的Servlet:LoginServlet
-在第一步中的login.jsp中，我们需要特别注意这句代码：
+        <h1 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h1><h2 id="实现登录功能"><a href="#实现登录功能" class="headerlink" title="实现登录功能"></a>实现登录功能</h2><p>第一步: 创建login.jsp登录页面</p>
+<p>在所创建的动态项目his_v1中，于WebContent文件夹下创建login.jsp。其显示效果类似于下图:</p>
+<p>对应源代码如下：</p>
+<pre><code>&lt;html&gt;
+&lt;body&gt;
+&lt;!– 需要注意的是:xml配置文件中的url-pattern这里写的是/LoginServlet，而在jsp中form表单的action写的是LoginServlet,而不是/LoginServlet。 –&gt;
+&lt;form action=”LoginServlet” method=”post”&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td colspan=”2”&gt;登录窗口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;用户名：&lt;/td&gt;
+&lt;td&gt;&lt;input type=”text” name=”username” /&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;密码：&lt;/td&gt;
+&lt;td&gt;&lt;input type=”password” name=”password” /&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=”2”&gt;&lt;input type=”submit” value=”登录” /&gt; &lt;a href=”register.jsp”&gt;注册&lt;/a&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>第二步：创建处理登录判定的Servlet:LoginServlet<br>在第一步中的login.jsp中，我们需要特别注意这句代码：</p>
 <form action="LoginServlet" method="post">
 这行代码中有两个属性，说明如下：
 action属性：点击登录按钮后，接下来的动作，这里是转到了LoginServlet。
@@ -205,30 +209,29 @@ method属性：表单中数据的提交方式。
 第一步: 创建login.jsp登录页面
 在所创建的动态项目his_v1中，于WebContent文件夹下创建login.jsp。其显示效果类似于下图: 
 对应源代码如下：
-<html> <body> <!-- 需要注意的是:xml配置文件中的url-pattern这里写的是/LoginServlet，而在jsp中form表单
-的action写的是LoginServlet,而不是/LoginServlet。 --> <form action="LoginServlet" method="post"> <table>
-<tr>
-<td colspan="2">登录窗口</td>
-</tr>
-<tr>
-<td>用户名：</td>
-<td><input type="text" name="username">
-</td>
-</tr>
-<tr>
-<td>密码：</td>
-<td><input type="password" name="password">
-</td>
-</tr>
-<tr>
-<td colspan="2"><input type="submit" value="登录"> <a href="register.jsp">注册</a>
-</td>
-</tr>
-</table>
-</form>
-</body> </html>
-第二步：创建处理登录判定的Servlet:LoginServlet
-在第一步中的login.jsp中，我们需要特别注意这句代码：
+
+<pre><code>&lt;html&gt; &lt;body&gt; &lt;!-- 需要注意的是:xml配置文件中的url-pattern这里写的是/LoginServlet，而在jsp中form表单
+的action写的是LoginServlet,而不是/LoginServlet。 --&gt; &lt;form action=&quot;LoginServlet&quot; method=&quot;post&quot;&gt; &lt;table&gt;
+&lt;tr&gt;
+&lt;td colspan=&quot;2&quot;&gt;登录窗口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;用户名：&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;username&quot; /&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;密码：&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;password&quot; name=&quot;password&quot; /&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=&quot;2&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;登录&quot; /&gt; &lt;a href=&quot;register.jsp&quot;&gt;注册&lt;/a&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+&lt;/body&gt; &lt;/html&gt;</code></pre><p>第二步：创建处理登录判定的Servlet:LoginServlet<br>在第一步中的login.jsp中，我们需要特别注意这句代码：</p>
 <form action="LoginServlet" method="post">
 这行代码中有两个属性，说明如下：
 action属性：点击登录按钮后，接下来的动作，这里是转到了LoginServlet。
